@@ -83,20 +83,50 @@ fun UtilityApp() {
 
 @Composable
 fun UtilityScreen() {
-    var counter by remember { mutableIntStateOf(0) }
-
     Column(
         modifier = Modifier
             .fillMaxSize()
-            .padding(24.dp),
-        verticalArrangement = Arrangement.spacedBy(16.dp)
+            .padding(20.dp),
+        verticalArrangement = Arrangement.spacedBy(18.dp)
     ) {
-        Text("Utility Screen", style = MaterialTheme.typography.headlineMedium)
-        Text("Counter: $counter", style = MaterialTheme.typography.bodyLarge)
 
-        Button(onClick = { counter++ }) {
-            Text("Increment")
+        Text(
+            text = "FocusFlow",
+            style = MaterialTheme.typography.headlineLarge
+        )
+
+        Text(
+            text = "🌤 Weather: 29°C | Cloudy",
+            style = MaterialTheme.typography.bodyLarge
+        )
+
+        Text(
+            text = "🧠 Focus Score: 84/100",
+            style = MaterialTheme.typography.bodyLarge
+        )
+
+        Text(
+            text = "⏳ Study Timer: 25:00",
+            style = MaterialTheme.typography.bodyLarge
+        )
+
+        Button(onClick = { }) {
+            Text("Start")
         }
+
+        Button(onClick = { }) {
+            Text("Reset")
+        }
+
+        Text(
+            text = "💬 Quote: Small progress is still progress.",
+            style = MaterialTheme.typography.bodyLarge
+        )
+
+        Text(
+            text = "📈 Status: Excellent Focus Day",
+            style = MaterialTheme.typography.bodyLarge
+        )
     }
 }
 

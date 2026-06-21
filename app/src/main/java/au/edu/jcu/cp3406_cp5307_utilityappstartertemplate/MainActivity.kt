@@ -132,12 +132,46 @@ fun UtilityScreen() {
 
 @Composable
 fun SettingsScreen() {
+
     Column(
-        Modifier
+        modifier = Modifier
             .fillMaxSize()
-            .padding(24.dp), Arrangement.spacedBy(16.dp)
+            .padding(24.dp),
+
+        verticalArrangement = Arrangement.spacedBy(20.dp)
     ) {
-        Text("Settings Screen", style = MaterialTheme.typography.headlineMedium)
-        Text("This is where you can add toggles or preferences.")
+
+        Text(
+            text = "Settings",
+            style = MaterialTheme.typography.headlineMedium
+        )
+
+        Text("Study Session Length")
+
+        Button(onClick = { }) {
+            Text("25 Minutes")
+        }
+
+        Button(onClick = { }) {
+            Text("45 Minutes")
+        }
+
+        Button(onClick = { }) {
+            Text("60 Minutes")
+        }
+
+        Text("Theme Options")
+
+        Button(onClick = { }) {
+            Text("Dark Mode")
+        }
+
+        Button(onClick = { }) {
+            Text("Enable Animations")
+        }
+
+        Button(onClick = { }) {
+            Text("Show Quotes")
+        }
     }
 }

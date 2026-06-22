@@ -29,6 +29,8 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import au.edu.jcu.cp3406_cp5307_utilityappstartertemplate.ui.theme.CP3406_CP5603UtilityAppStarterTemplateTheme
+import androidx.lifecycle.viewmodel.compose.viewModel
+import au.edu.jcu.cp3406_cp5307_utilityappstartertemplate.viewmodel.FocusViewModel
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -82,7 +84,7 @@ fun UtilityApp() {
 }
 
 @Composable
-fun UtilityScreen() {
+fun UtilityScreen(viewModel: FocusViewModel = viewModel()) {
     Column(
         modifier = Modifier
             .fillMaxSize()
@@ -101,20 +103,20 @@ fun UtilityScreen() {
         )
 
         Text(
-            text = "🧠 Focus Score: 84/100",
+            text = "🧠 Focus Score: ${viewModel.focusScore.value}/100",
             style = MaterialTheme.typography.bodyLarge
         )
 
         Text(
-            text = "⏳ Study Timer: 25:00",
+            text = "⏳ Study Timer: ${viewModel.timer.value}:00",
             style = MaterialTheme.typography.bodyLarge
         )
 
-        Button(onClick = { }) {
+        Button(onClick = { viewModel.startTimer() }) {
             Text("Start")
         }
 
-        Button(onClick = { }) {
+        Button(onClick = { viewModel.resetTimer() }) {
             Text("Reset")
         }
 

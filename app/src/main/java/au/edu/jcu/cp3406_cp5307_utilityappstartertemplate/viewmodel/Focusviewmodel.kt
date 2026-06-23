@@ -16,4 +16,8 @@ class FocusViewModel : ViewModel() {
     fun resetTimer() {
         timer.value = 25
     }
+
+    fun setTimer(minutes: Int) {
+        timer.value = minutes
+    }
 }

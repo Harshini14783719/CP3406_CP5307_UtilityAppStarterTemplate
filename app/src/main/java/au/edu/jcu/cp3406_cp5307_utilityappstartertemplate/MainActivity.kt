@@ -55,6 +55,7 @@ fun UtilityAppPreview() {
 @Composable
 fun UtilityApp() {
     var selectedTab by remember { mutableStateOf("Utility") }
+    val focusViewModel: FocusViewModel = viewModel()
 
     Scaffold(
         bottomBar = {
@@ -76,8 +77,8 @@ fun UtilityApp() {
     ) { innerPadding ->
         Box(modifier = Modifier.padding(innerPadding)) {
             when (selectedTab) {
-                "Utility" -> UtilityScreen()
-                "Settings" -> SettingsScreen()
+                "Utility" -> UtilityScreen(focusViewModel)
+                "Settings" -> SettingsScreen(focusViewModel)
             }
         }
     }
@@ -133,7 +134,7 @@ fun UtilityScreen(viewModel: FocusViewModel = viewModel()) {
 }
 
 @Composable
-fun SettingsScreen() {
+fun SettingsScreen(viewModel: FocusViewModel) {
 
     Column(
         modifier = Modifier
@@ -150,15 +151,15 @@ fun SettingsScreen() {
 
         Text("Study Session Length")
 
-        Button(onClick = { }) {
+        Button(onClick = { viewModel.setTimer(25) }) {
             Text("25 Minutes")
         }
 
-        Button(onClick = { }) {
+        Button(onClick = { viewModel.setTimer(45) }) {
             Text("45 Minutes")
         }
 
-        Button(onClick = { }) {
+        Button(onClick = { viewModel.setTimer(60) }) {
             Text("60 Minutes")
         }
 

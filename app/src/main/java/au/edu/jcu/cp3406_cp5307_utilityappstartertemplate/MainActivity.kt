@@ -85,7 +85,7 @@ fun UtilityApp() {
 }
 
 @Composable
-fun UtilityScreen(viewModel: FocusViewModel = viewModel()) {
+fun UtilityScreen(viewModel: FocusViewModel) {
     Column(
         modifier = Modifier
             .fillMaxSize()
@@ -99,7 +99,12 @@ fun UtilityScreen(viewModel: FocusViewModel = viewModel()) {
         )
 
         Text(
-            text = "🌤 Weather: 29°C | Cloudy",
+            text = "🌤 Weather: ${viewModel.weather.value}",
+            style = MaterialTheme.typography.bodyLarge
+        )
+        
+        Text(
+            text = "💬 Quote: ${viewModel.quote.value}",
             style = MaterialTheme.typography.bodyLarge
         )
 
@@ -120,11 +125,6 @@ fun UtilityScreen(viewModel: FocusViewModel = viewModel()) {
         Button(onClick = { viewModel.resetTimer() }) {
             Text("Reset")
         }
-
-        Text(
-            text = "💬 Quote: Small progress is still progress.",
-            style = MaterialTheme.typography.bodyLarge
-        )
 
         Text(
             text = "📈 Status: Excellent Focus Day",

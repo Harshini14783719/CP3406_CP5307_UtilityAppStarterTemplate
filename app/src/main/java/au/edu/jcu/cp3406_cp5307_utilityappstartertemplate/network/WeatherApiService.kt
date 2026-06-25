@@ -5,7 +5,7 @@ import retrofit2.http.GET
 
 interface WeatherApiService {
 
-    @GET("v1/forecast?latitude=1.3521&longitude=103.8198&current=temperature_2m")
+    @GET("api/random")
 
-    fun getWeather(): Call<Map<String, Any>>
+    fun getQuote(): Call<List<Map<String, String>>>
 }

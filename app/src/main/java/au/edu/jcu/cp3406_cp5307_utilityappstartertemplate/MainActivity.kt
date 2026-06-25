@@ -90,6 +90,7 @@ fun UtilityScreen(viewModel: FocusViewModel) {
         modifier = Modifier
             .fillMaxSize()
             .padding(20.dp),
+
         verticalArrangement = Arrangement.spacedBy(18.dp)
     ) {
 
@@ -165,7 +166,7 @@ fun SettingsScreen(viewModel: FocusViewModel) {
 
         Text("Theme Options")
 
-        Button(onClick = { }) {
+        Button(onClick = { viewModel.toggleDarkMode() }) {
             Text("Dark Mode")
         }
 

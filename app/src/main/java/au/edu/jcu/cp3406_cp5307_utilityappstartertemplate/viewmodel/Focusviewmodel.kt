@@ -15,8 +15,15 @@ class FocusViewModel : ViewModel() {
     var weather = mutableStateOf("30°C Cloudy")
     var quote = mutableStateOf("Loading quote...")
 
+    var darkMode = mutableStateOf(false)
+
+
     init {
         fetchQuote()
+    }
+
+    fun toggleDarkMode() {
+        darkMode.value = !darkMode.value
     }
 
     fun startTimer() {
